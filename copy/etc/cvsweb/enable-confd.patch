@@ -1,0 +1,11 @@
+--- a/cvsweb.conf	2005-06-19 11:13:50.000000000 +0200
++++ b/cvsweb.conf	2018-11-03 18:49:51.568012371 +0100
+@@ -641,7 +641,7 @@
+ # specific configuration without having to modify this "master" configuration
+ # file (except for enabling this functionality below :)
+ #
+-if (0) {
++if (1) {
+   my $confdir = catdir(dirname(__FILE__), 'conf.d');
+   if (opendir(CONFD, $confdir)) {
+     my @files = sort(map(catfile($confdir, $_), readdir(CONFD)));

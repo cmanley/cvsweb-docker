@@ -1,0 +1,18 @@
+--- a/cvsweb	2015-02-17 17:59:38.000000000 +0000
++++ b/cvsweb	2018-11-04 19:56:20.365885539 +0000
+@@ -3848,6 +3848,7 @@
+ $HTML_DOCTYPE
+ <html>
+ <head>
++<link rel="shortcut icon" href="/favicon.ico" />
+ <title>$qpath$qfile - $title$trev</title>
+ $HTML_META$CSS</head>
+ <body class="src">
+@@ -4310,6 +4311,7 @@
+ $HTML_DOCTYPE
+ <html>
+ <head>
++<link rel="shortcut icon" href="/favicon.ico" />
+ <title>$title</title>
+ $HTML_META$css</head>
+ <body>

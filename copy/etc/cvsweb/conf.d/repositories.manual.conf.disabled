@@ -1,0 +1,12 @@
+# This is a Perl script containing cvsweb.conf overrides.
+use strict;
+
+# There are 2 ways to define your repositories here (assuming you have multiple repositories under the mounted /repos/ path):
+# 1. List each repository seperately (1 per line) in the @CVSrepositories array (see cvsweb.conf for how).
+# 2. Add an empty CVSROOT directory to the /repos/ path. cvsweb will assume /repos/ is 1 single large repository and will simply work.
+
+our @CVSrepositories = (
+	'local' => ['Local Repository', '/repos'],
+);
+
+1;
