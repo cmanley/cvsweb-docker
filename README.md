@@ -1,12 +1,10 @@
 cvsweb-docker
 =============
 
-A ready to use docker image containing cvsweb 3.0.6 (a CVS repository viewer) running on nginx,
-with configurable runtime options (such as timezone and gid).
+A Docker image of CVSweb 3.0.6-8 (an old CVS repository viewer) based on nginx and Debian Stretch-slim
+with configurable run-time options (such as timezone and group id).
 
 You can use it to quickly and safely expose a web interface to the CVS repositories directory on your host machine.
-
-The Dockerfile uses the cvsweb 3.0.6-8 Debian package which is a patched version of the last release from https://people.freebsd.org/~scop/cvsweb/
 
 Installation
 ------------
