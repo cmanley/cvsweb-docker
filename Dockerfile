@@ -88,7 +88,6 @@ RUN printf "\n########## Building Enscript (just ignore the warnings) ##########
 	&& rm -fr "$ENSCRIPT_BASENAME" \
 	&& rm -fr /usr/share/info \
 	&& if [ -n "$DEL" ]; then echo "Delete temporary package(s) $DEL" && apk del $DEL; fi
-WORKDIR /
 # Add php highlighting support to enscript
 #RUN if [ -d /usr/share/enscript/hl ] && [ ! -f /usr/share/enscript/hl/php.st ]; then wget -q -O /usr/share/enscript/hl/php.st https://raw.githubusercontent.com/gooselinux/enscript/master/enscript-php-1.6.4.st; fi
 
@@ -99,8 +98,8 @@ ARG CVSGRAPH_BASENAME=cvsgraph-$CVSGRAPH_VERSION
 ARG CVSGRAPH_DOWNLOAD_FILE=$CVSGRAPH_BASENAME.tar.gz
 ARG CVSGRAPH_DOWNLOAD_URL=http://www.akhphd.au.dk/~bertho/cvsgraph/release/$CVSGRAPH_DOWNLOAD_FILE
 ARG CVSGRAPH_DOWNLOAD_SHA256=74438faaefd325c7a8ed289ea5d1657befe1d1859d55f8fbbcc7452f4efd435f
-WORKDIR /tmp
 RUN printf "\n########## Building cvsgraph ##########\n" \
+	&& cd /tmp \
 	&& apk --no-cache add libgd \
 	&& NEED='byacc flex gd-dev g++ make freetype-dev libjpeg-turbo-dev libpng-dev libwebp-dev wget' \
 	&& DEL='' \
