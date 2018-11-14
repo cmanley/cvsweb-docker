@@ -3,7 +3,8 @@ FROM alpine:3.8
 LABEL Maintainer="Craig Manley https://github.com/cmanley" \
       Description="cvsweb 3.0.6-8 (CVS repository viewer) using nginx, fcgiwrap, and Alpine 3.8"
 
-RUN apk update && apk --no-cache add \
+RUN apk update \
+	&& apk --no-cache add \
 	cvs \
 	fcgiwrap \
 	nginx \
@@ -14,6 +15,7 @@ RUN apk update && apk --no-cache add \
 	shadow \
 	spawn-fcgi \
 	supervisor \
+	tzdata \
 	&& apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/ rcs
 # Note: the last package (rcs) doesn't exist in 3.8 yet
 
