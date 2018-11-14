@@ -118,12 +118,12 @@ $show_author = 0;
 * Take note of the full path to the cvsweb conf.d directory in the image. That is `/etc/cvsweb/conf.d/`.
 * Mount your file into the container using the option `-v /path/to/custom.conf:/etc/cvsweb/conf.d/custom.conf:ro` when running it like this:
 ```shell
-	docker run --name cvsweb \
-	-v /path/to/custom.conf:/etc/cvsweb/conf.d/custom.conf:ro
-	-v /var/lib/cvs:/repos:ro \
-	-p 127.0.0.1:8080:80 \
-	-e TZ=$(</etc/timezone) \
-	--rm -d cmanley/cvsweb:alpine
+docker run --name cvsweb \
+-v /path/to/custom.conf:/etc/cvsweb/conf.d/custom.conf:ro
+-v /var/lib/cvs:/repos:ro \
+-p 127.0.0.1:8080:80 \
+-e TZ=$(</etc/timezone) \
+--rm -d cmanley/cvsweb:alpine
 ```
 Tip: Leave the -d (= detach = run in background) option off the first time you run your new command just to see if your change causes any errors.
 
