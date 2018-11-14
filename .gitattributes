@@ -1,1 +1,3 @@
-copy/*/* linguist-vendored
+copy/etc/* linguist-vendored
+copy/usr/* linguist-vendored
+copy/var/* linguist-vendored
