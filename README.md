@@ -82,6 +82,8 @@ Remove the container (in case you didn't run it with the --rm option) using:
 Runtime configuration
 ---------------------
 
+### Using environment variables ###
+
 You can configure how the container runs by passing some of the environment variables below using the --env or -e option to docker run.
 Unless your host's repository is world-readable (which it shouldn't be), then you'll need to at least need to specify CVSWEB_GID.
 
@@ -90,6 +92,33 @@ Unless your host's repository is world-readable (which it shouldn't be), then yo
 | **CVSWEB_DEBUG**  | Allowed values: true or false (default).                                                                         |
 | **CVSWEB_GID**    | The gid (group id) of the host repository directory. If not given, then the gid of the host volume will be used. |
 | **TZ**            | Specify the time zone to use. Default is UTC. In most cases, use the value in the host's /etc/timezone file.     |
+
+### Using override config files ###
+
+Besides simply editing existing config files in the project and then rebuilding and running the project, 
+you can also create override config files on you host machine and mount them into the container at run time.
+
+#### Example: ####
+
+If you want to tweak the visual options of cvsweb such as hiding the "Author" column in the files overview pages, and show white-space changes in diffs, then:
+
+* Create a file with any name as long as it has the extension .conf, e.g. `custom.conf` containing the lines:
+```perl
+$hr_ignwhite = 0;
+$show_author = 1;
+1;	# This file uses Perl syntax just like cvsweb.conf and must therefore end with "1;"
+```
+* Take note of the full path to the cvsweb conf.d directory in the image. That is `/etc/cvsweb/conf.d/`.
+* Mount your file into the container using the option `-v /path/to/custom.conf:/etc/cvsweb/conf.d/custom.conf:ro` when running it like this:
+```shell
+	docker run --name cvsweb \
+	-v /path/to/custom.conf:/etc/cvsweb/conf.d/custom.conf:ro
+	-v /var/lib/cvs:/repos:ro \
+	-p 127.0.0.1:8080:80 \
+	-e TZ=$(</etc/timezone) \
+	--rm -d cmanley/cvsweb:debian
+```
+Tip: Leave the -d (= detach = run in background) option off the first time you run your new command just to see if your change causes any errors.
 
 Security information
 --------------------
