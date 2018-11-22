@@ -6,6 +6,8 @@ with configurable run-time options (such as timezone and group id).
 
 You can use it to quickly and safely expose a web interface to the CVS repositories directory on your host machine.
 
+**Quick note**: If you haven't heard about [ViewVC](https://github.com/viewvc/viewvc/) before, then you may want to look at that project too because it's a CVS repository viewer inspired by CVSweb, for which a [Docker image](https://github.com/cmanley/viewvc-docker) project exists too.
+
 Alpine Linux related notes
 --------------------------
 The Dockerfile uses the cvsweb 3.0.6-8 Debian package which is a patched version of the last release from https://people.freebsd.org/~scop/cvsweb/
