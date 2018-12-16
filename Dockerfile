@@ -46,4 +46,4 @@ RUN ln -s /usr/share/cvsweb /var/www/cvsweb \
 
 EXPOSE 80
 ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["cvsweb:debian"]
+CMD ["cvsweb"]
