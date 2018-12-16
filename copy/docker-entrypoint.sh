@@ -16,7 +16,7 @@ fi
 
 
 # Default entrypoint (as defined by Dockerfile CMD):
-if [ "$(echo $1 | cut -c1-6)" = 'cvsweb' ]; then
+if [ "$1" = 'cvsweb' ]; then
 	CVSWEB_ROOT='/var/www/cvsweb'
 
 	# Set gid of cvsweb so that it can read the host's volume

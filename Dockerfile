@@ -168,4 +168,4 @@ RUN adduser -D -S -u 82 -h /var/www -G www-data www-data
 
 EXPOSE 80
 ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["cvsweb:alpine"]
+CMD ["cvsweb"]
